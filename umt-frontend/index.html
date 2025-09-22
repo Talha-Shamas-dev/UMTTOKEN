@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>UMTToken Frontend</title>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.9.0/dist/ethers.min.js"></script>
+</head>
+
+<body>
+    <h1>UMTToken Dashboard</h1>
+
+    <button id="connectWallet">Connect MetaMask</button>
+
+    <p>Your ETH Balance: <span id="ethBalance">0</span></p>
+    <p>Your UMTToken Balance: <span id="tokenBalance">0</span></p>
+
+    <h2>Transfer UMTToken</h2>
+    <input type="text" id="recipient" placeholder="Recipient Address">
+    <input type="number" id="amount" placeholder="Amount">
+    <button id="sendToken">Send Token</button>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
