@@ -4,22 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <title>UMTToken Frontend</title>
-    <script src="https://cdn.jsdelivr.net/npm/ethers@6.9.0/dist/ethers.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>UMTToken Dashboard</h1>
+    <div class="card">
+        <h1>UMTToken Dashboard</h1>
 
-    <button id="connectWallet">Connect MetaMask</button>
+        <button id="connectWallet" class="btn">Connect MetaMask</button>
 
-    <p>Your ETH Balance: <span id="ethBalance">0</span></p>
-    <p>Your UMTToken Balance: <span id="tokenBalance">0</span></p>
+        <p>Your ETH Balance: <span id="ethBalance">0</span></p>
+        <p>Your UMTToken Balance: <span id="tokenBalance">0</span></p>
 
-    <h2>Transfer UMTToken</h2>
-    <input type="text" id="recipient" placeholder="Recipient Address">
-    <input type="number" id="amount" placeholder="Amount">
-    <button id="sendToken">Send Token</button>
+        <h2>Transfer UMTToken</h2>
+        <input type="text" id="recipient" placeholder="Recipient Address">
+        <input type="number" id="amount" placeholder="Amount">
+        <button id="sendToken" class="btn">Send Token</button>
+    </div>
 
+    <!-- Load ethers.js -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.10.0/dist/ethers.umd.min.js"></script>
+    <!-- Load app logic -->
     <script src="app.js"></script>
 </body>
 

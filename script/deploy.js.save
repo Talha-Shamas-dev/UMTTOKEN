@@ -1,0 +1,32 @@
+const { ethers } = require("ethers");
+require("dotenv").config();
+
+async function main() {
+  // RPC aur Private Key .env se lo
+  const provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
+  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+
+  console.log("Deploying contract with account:", wallet.address);
+
+  // Compile ke baad Foundry se contract ka ABI + bytecode aata hai
+  const artifact = require("../out/UMTToken.sol/UMTToken.json");
+
+  // Deploy factory banao
+  const factory = new ethers.ContractFactory(
+    artifact.abi,
+    artifact.bytecode,
+    wallet
+  );
+
+  // Deploy contract
+  const contract = await factory.deploy(1000000); // initial supply
+  await contract.waitForDeployment();
+
+  console.log("UMTToken deployed at:", contract.target);
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
